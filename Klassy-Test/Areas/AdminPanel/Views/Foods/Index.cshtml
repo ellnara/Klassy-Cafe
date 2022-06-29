@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Food>
+@{
+    ViewData["Title"] = "Index";
+    int count = 1;
+}
+
+<div class="card">
+    <h5 class="card-header">Foods</h5>
+    
+    <div class="table-responsive text-nowrap">
+        <a asp-action="Create" class="btn btn-success" style="float:right;color:white;margin-right:70px">Create New One</a>
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Settings</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var food in Model)
+                {
+                    <tr>
+                        <td>@count</td>
+                        <td><img style="width:100px;height:100px" src="~/images/@food.Url" class="rounded-circle" /></td>
+                        <td>
+                            @food.Name
+                    </td>
+                    <td>@food.Description</td>
+                    <td>
+                        $@food.Price
+                    </td>
+                    <td>
+                        <a asp-route-id="@food.Id" asp-controller="Foods" asp-action="Update" class="btn btn-warning">Edit</a>
+                        <a asp-route-Id="@food.Id" asp-controller="Foods" asp-action="Delete" class="btn btn-danger">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+                count++;
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--/ Bootstrap Dark Table -->

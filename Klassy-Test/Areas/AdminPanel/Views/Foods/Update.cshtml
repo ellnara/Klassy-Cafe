@@ -1,0 +1,47 @@
+﻿@model Klassy_Test.ViewModels.Foods.FoodsCreateVM
+    @{
+        ViewData["Title"] = "Update";
+    }
+<div class="col-xxl">
+    <div class="card mb-4">
+        <div class="card-header d-flex align-items-center justify-content-between">
+            <h5 class="mb-0">Update Foods</h5>
+        </div>
+        <div class="card-body">
+            <form asp-controller="Foods" asp-action="Update" method="post" enctype="multipart/form-data">
+                <div class="row mb-3">
+                    <label asp-for="Name" class="col-sm-2 col-form-label">Food Name</label>
+                    <div class="col-sm-10">
+                        <input asp-for="Name" class="form-control" placeholder="Name" />
+                        <span asp-validation-for="Name"></span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label asp-for="Description" class="col-sm-2 col-form-label">Description</label>
+                    <div class="col-sm-10">
+                        <input asp-for="Description"
+                               class="form-control"
+                               placeholder="Description">
+                        <span asp-validation-for="Description"></span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label asp-for="Price" class="col-sm-2 col-form-label">Price</label>
+                    <div class="col-sm-10">
+                        <div class="col-sm-10">
+                            <input asp-for="Price"
+                                   class="form-control"
+                                   placeholder="Price" />
+                            <span asp-validation-for="Price"></span>
+                        </div>
+                        <div class="form-text">You can use letters, numbers & periods</div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-warning">Save</button>
+                <a class="btn btn-primary" asp-action="Index">
+                    Cancel
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
